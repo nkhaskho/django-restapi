@@ -15,7 +15,7 @@ STATUS_CHOICES = [
 # Create your models here.
 
 class Software(models.Model):
-    type =  models.CharField(choices=TOOLS_TYPE_CHOICES, max_length=10)
+    type =  models.CharField(default=TOOLS_TYPE_CHOICES[1][1], max_length=10)
     version = models.CharField(max_length=50)
     designation = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
@@ -30,7 +30,7 @@ class Software(models.Model):
 
 
 class Hardware(models.Model):
-    type =  models.CharField(choices=TOOLS_TYPE_CHOICES, max_length=10)
+    type =  models.CharField(default=TOOLS_TYPE_CHOICES[0][1], max_length=10)
     version = models.CharField(max_length=50)
     designation = models.CharField(max_length=100)
     description = models.CharField(max_length=255)

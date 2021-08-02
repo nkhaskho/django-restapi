@@ -1,6 +1,5 @@
+from django.contrib.auth.base_user import AbstractBaseUser
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-
 
 
 class Project(models.Model):
@@ -10,7 +9,6 @@ class Project(models.Model):
     def __str__(self) -> str:
         return self.name
 
-
 USER_ROLE_CHOICES = [
     ('MANAGER', 'Manager'),
     ('LEADER', 'Leader'),
@@ -19,7 +17,7 @@ USER_ROLE_CHOICES = [
 
 # Create your models here.
 class Employee(models.Model):
-    username = models.CharField(max_length=255)
+    username = models.CharField(db_index=True, max_length=255, unique=True)
     email = models.EmailField()
     password = models.CharField(max_length=255)
     identifier = models.IntegerField(null=True)

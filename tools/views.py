@@ -5,6 +5,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework import generics
 
@@ -20,6 +21,7 @@ class HardwareList(generics.ListCreateAPIView):
     """
     queryset = Hardware.objects.all()
     serializer_class = HardwareSerializer
+    permission_classes = (IsAuthenticated,)
 
 
 
@@ -27,6 +29,7 @@ class HardwareDetail(APIView):
     """
     Retrieve, update or delete a hardware tools.
     """
+    permission_classes = (IsAuthenticated,)
     def get_object(self, pk):
         try:
             return Hardware.objects.get(pk=pk)
@@ -58,12 +61,14 @@ class SoftwareList(generics.ListCreateAPIView):
     """
     queryset = Software.objects.filter()
     serializer_class = SoftwareSerializer
+    permission_classes = (IsAuthenticated,)
 
 
 class SoftwareDetail(APIView):
     """
     Retrieve, update or delete a software tools.
     """
+    permission_classes = (IsAuthenticated,)
     def get_object(self, pk):
         try:
             return Software.objects.get(pk=pk)
