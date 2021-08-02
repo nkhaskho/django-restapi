@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50000),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=20),
     'UPDATE_LAST_LOGIN': False,
 
     'ALGORITHM': 'HS256',
@@ -53,11 +52,7 @@ SIMPLE_JWT = {
 
     'JTI_CLAIM': 'jti',
 
-    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=50000),
-    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=20),
 }
-
 """
 REST_FRAMEWORK = {    
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -65,7 +60,6 @@ REST_FRAMEWORK = {
     )
 }
 """
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -74,8 +68,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    #'rest_framework_simplejwt',
-    'employees'
+    'rest_framework_simplejwt',
+    'employees',
+    'tools'
 ]
 
 MIDDLEWARE = [
