@@ -5,4 +5,4 @@ from rest_framework import serializers
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = ('username', 'email', 'password', 'role', 'deleted')
+        fields = "__all__"
