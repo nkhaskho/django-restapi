@@ -12,25 +12,15 @@ from django.http import Http404
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Project, User
 from .serlializers import ProjectSerializer
-
-
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serlializers import UserSerializer
 
-"""
-@api_view(['GET'])
-def profile(request):
-    users = User.objects.all()
-    serialized_user = UserSerializer(users).data
-    return Response({'user': serialized_user })
-"""
 
 class UserList(generics.ListCreateAPIView):
     """
     List all users, or create a new user.
     """
-    queryset = User.objects.all()
+    queryset = User.objects.filter(is_active=True)
     serializer_class = UserSerializer
     #permission_classes = (IsAuthenticated,)
 
@@ -60,12 +50,10 @@ class UserDetail(APIView):
 
     def delete(self, request, pk, format=None):
         user = self.get_object(pk)
-        user.deleted = True
         user.is_active = False
         user.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
+        #return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class ProjectList(generics.ListCreateAPIView):
