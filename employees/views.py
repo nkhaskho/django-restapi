@@ -10,8 +10,62 @@ from rest_framework import generics
 from django.http import Http404
 
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from .models import Employee, Project
-from .serlializers import EmployeeSerializer, ProjectSerializer
+from .models import Project, User
+from .serlializers import ProjectSerializer
+
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serlializers import UserSerializer
+
+"""
+@api_view(['GET'])
+def profile(request):
+    users = User.objects.all()
+    serialized_user = UserSerializer(users).data
+    return Response({'user': serialized_user })
+"""
+
+class UserList(generics.ListCreateAPIView):
+    """
+    List all users, or create a new user.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    #permission_classes = (IsAuthenticated,)
+
+
+class UserDetail(APIView):
+    """
+    Retrieve, update or delete a project identity.
+    """
+    def get_object(self, pk):
+        try:
+            return User.objects.get(pk=pk)
+        except User.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        user = self.get_object(pk)
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        user = self.get_object(pk)
+        serializer = UserSerializer(user, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        user = self.get_object(pk)
+        user.deleted = True
+        user.is_active = False
+        user.save()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 
 
 class ProjectList(generics.ListCreateAPIView):
@@ -47,47 +101,8 @@ class ProjectDetail(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, pk, format=None):
-        employee = self.get_object(pk)
-        employee.deleted = True
-        employee.save()
-        return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-
-class EmployeeList(generics.ListCreateAPIView):
-    """
-    List all employees, or create a new employee.
-    """
-    queryset = Employee.objects.filter(deleted=False)
-    serializer_class = EmployeeSerializer
-
-
-class EmployeeDetail(APIView):
-    """
-    Retrieve, update or delete an employee identity.
-    """
-    def get_object(self, pk):
-        try:
-            return Employee.objects.get(pk=pk)
-        except Employee.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk, format=None):
-        employee = self.get_object(pk)
-        serializer = EmployeeSerializer(employee)
-        return Response(serializer.data)
-
-    def put(self, request, pk, format=None):
-        employee = self.get_object(pk)
-        serializer = EmployeeSerializer(employee, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, pk, format=None):
-        employee = self.get_object(pk)
-        employee.deleted = True
-        employee.save()
+        project = self.get_object(pk)
+        project.deleted = True
+        project.save()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
