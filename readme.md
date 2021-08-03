@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ```
 
 ### User management
-Use default admin superuser username: '**admin**' and password: '**Aes2021**'
+Use default admin superuser username: '**admin**' and password: '**Aes2021\*\***'
 
 **Or create new admin superuser**
 ```bat
