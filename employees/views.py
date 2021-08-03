@@ -1,14 +1,13 @@
 
 
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework import generics
 
-from django.http import HttpResponse, Http404
+from django.http import Http404
 
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Employee, Project
@@ -21,14 +20,13 @@ class ProjectList(generics.ListCreateAPIView):
     """
     queryset = Project.objects.filter(deleted=False)
     serializer_class = ProjectSerializer
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
 
 
 class ProjectDetail(APIView):
     """
     Retrieve, update or delete a project identity.
     """
-    permission_classes = (IsAuthenticated,)
     def get_object(self, pk):
         try:
             return Project.objects.get(pk=pk)
@@ -62,14 +60,12 @@ class EmployeeList(generics.ListCreateAPIView):
     """
     queryset = Employee.objects.filter(deleted=False)
     serializer_class = EmployeeSerializer
-    permission_classes = (IsAuthenticated,)
 
 
 class EmployeeDetail(APIView):
     """
     Retrieve, update or delete an employee identity.
     """
-    permission_classes = (IsAuthenticated,)
     def get_object(self, pk):
         try:
             return Employee.objects.get(pk=pk)
