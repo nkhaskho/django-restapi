@@ -27,8 +27,8 @@ class UserManager(BaseUserManager):
         if email is None:
             raise TypeError("email field is required")
         if password is None:
-            raise TypeError("password field is required")
-        user = self.model(username=username, email=self.normalize_email(email), password=password)
+            raise TypeError("password field is required") #, password=password
+        user = self.model(username=username, email=self.normalize_email(email))
         user.set_password(password)
         user.save()
         return user
@@ -49,7 +49,7 @@ class UserManager(BaseUserManager):
 class User(AbstractUser, PermissionsMixin):
     username = models.CharField(max_length=255, unique=True, db_index=True)
     email = models.EmailField(unique=True)
-    registration_number = models.IntegerField(null=True)
+    registration_number = models.IntegerField(unique=True, null=True)
     role = models.CharField(choices=USER_ROLE_CHOICES, max_length=20, default='TEAM_MEMBER')
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True)
     is_active = models.BooleanField(default=True)
@@ -59,7 +59,7 @@ class User(AbstractUser, PermissionsMixin):
     updated_at = models.DateTimeField(auto_now=True)
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']
+    REQUIRED_FIELDS = ['email', 'password']
 
     objects = UserManager()
 
