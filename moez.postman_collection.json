@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\": \"it-admin\",\n    \"password\": \"It2021**\"\n}",
+							"raw": "{\n    \"username\": \"mthabet\",\n    \"password\": \"Test1234**\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -44,358 +44,378 @@
 			]
 		},
 		{
-			"name": "users",
+			"name": "employees",
 			"item": [
 				{
-					"name": "GET  /api/users",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTQ3MDA3LCJqdGkiOiI5N2EwNDZiNTgxM2Q0MWI4YjExMDVhYWRmMmM0ZWEyZiIsInVzZXJfaWQiOjF9.EQAXOcV0_yYFL8qT4PXYcj_w7S3eBB9N92f-IzVB-as",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/users/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"users",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST  /api/users",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTQ3MDA3LCJqdGkiOiI5N2EwNDZiNTgxM2Q0MWI4YjExMDVhYWRmMmM0ZWEyZiIsInVzZXJfaWQiOjF9.EQAXOcV0_yYFL8qT4PXYcj_w7S3eBB9N92f-IzVB-as"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"mthabet\",\n    \"email\": \"mthabet@org.com\",\n    \"password\": \"Test1234**\",\n    \"identifier\": 643,\n    \"role\": \"USER\",\n    \"is_active\": true,\n    \"is_staff\": false,\n    \"deleted\": false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "users",
+					"item": [
+						{
+							"name": "GET  /api/employees/users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTQ3MDA3LCJqdGkiOiI5N2EwNDZiNTgxM2Q0MWI4YjExMDVhYWRmMmM0ZWEyZiIsInVzZXJfaWQiOjF9.EQAXOcV0_yYFL8qT4PXYcj_w7S3eBB9N92f-IzVB-as",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"users",
+										""
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/users/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"users",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET  /api/users/<id>",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/users/12",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"users",
-								"12"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT  /api/users/<id>",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"username\": \"admin\",\n    \"email\": \"admin@aes.com\",\n    \"password\": \"Aes2021**\",\n    \"identifier\": 1,\n    \"role\": \"MANAGER\",\n    \"is_active\": true,\n    \"is_staff\": true,\n    \"deleted\": false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "POST  /api/employees/users",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTQ3MDA3LCJqdGkiOiI5N2EwNDZiNTgxM2Q0MWI4YjExMDVhYWRmMmM0ZWEyZiIsInVzZXJfaWQiOjF9.EQAXOcV0_yYFL8qT4PXYcj_w7S3eBB9N92f-IzVB-as",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"user1\",\n    \"email\": \"user1@org.com\",\n    \"password\": \"user1\",\n    \"registration_number\": 101,\n    \"role\": \"TEAM_MEMBER\",\n    \"project\": 1,\n    \"is_active\": true,\n    \"is_staff\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/users/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"users",
+										""
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/users/1/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"users",
-								"1",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE  /api/users/<id>",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/employees/users/3",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"employees",
-								"users",
-								"3"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "projects",
-			"item": [
-				{
-					"name": "GET  /api/projects",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMDEyMDYwLCJqdGkiOiJkMjdhMmEyMzY1MjU0OTNmOWQ3ZjY4MGFjMGM2YWZiOSIsInVzZXJfaWQiOjF9.bCIplbxykeNSjcyy1SiRv6jwfFtrEEfsE6AA4foUla4",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/projects/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"projects",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GET  /api/projects/<id>",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMDEyMDYwLCJqdGkiOiJkMjdhMmEyMzY1MjU0OTNmOWQ3ZjY4MGFjMGM2YWZiOSIsInVzZXJfaWQiOjF9.bCIplbxykeNSjcyy1SiRv6jwfFtrEEfsE6AA4foUla4",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/projects/3",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"projects",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST  /api/projects",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Project 2\",\n    \"deleted\": false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "GET  /api/employees/users/<id>",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/users/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"users",
+										"2"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/projects/",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"projects",
-								""
-							]
+						{
+							"name": "PUT  /api/employees/users/<id>",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 1,\n    \"username\": \"admin\",\n    \"email\": \"admin@org.com\",\n    \"registration_number\": 1,\n    \"project\": 1,\n    \"is_active\": true,\n    \"is_staff\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/users/1/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"users",
+										"1",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE  /api/employees/users/<id>",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/users/4/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"users",
+										"4",
+										""
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "PUT  /api/projects",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMDEyMDYwLCJqdGkiOiJkMjdhMmEyMzY1MjU0OTNmOWQ3ZjY4MGFjMGM2YWZiOSIsInVzZXJfaWQiOjF9.bCIplbxykeNSjcyy1SiRv6jwfFtrEEfsE6AA4foUla4"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "    {\n        \"id\": 3,\n        \"name\": \"Project 3\",\n        \"deleted\": false\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "projects",
+					"item": [
+						{
+							"name": "GET  /api/employees/projects",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMDEyMDYwLCJqdGkiOiJkMjdhMmEyMzY1MjU0OTNmOWQ3ZjY4MGFjMGM2YWZiOSIsInVzZXJfaWQiOjF9.bCIplbxykeNSjcyy1SiRv6jwfFtrEEfsE6AA4foUla4",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/projects/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"projects",
+										""
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/projects",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"projects"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE /api/projects",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\": \"Project 2\",\n    \"deleted\": false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "GET  /api/employees/projects/<id>",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMDEyMDYwLCJqdGkiOiJkMjdhMmEyMzY1MjU0OTNmOWQ3ZjY4MGFjMGM2YWZiOSIsInVzZXJfaWQiOjF9.bCIplbxykeNSjcyy1SiRv6jwfFtrEEfsE6AA4foUla4"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/projects/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"projects",
+										"3"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/projects/3",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"projects",
-								"3"
-							]
+						{
+							"name": "POST  /api/employees/projects",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMDkyNjI0LCJqdGkiOiI3ZDUyZTU4ZTdjZTg0YmRkYTU1ZjkzYWQxNGRiYjQ2ZiIsInVzZXJfaWQiOjF9.sk9Ovdxoh5EUZMClNojhywc5P4F-ksmWU1CQYCM-knk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Support IT\",\n    \"deleted\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/projects/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"projects",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT  /api/employees/projects",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMDEyMDYwLCJqdGkiOiJkMjdhMmEyMzY1MjU0OTNmOWQ3ZjY4MGFjMGM2YWZiOSIsInVzZXJfaWQiOjF9.bCIplbxykeNSjcyy1SiRv6jwfFtrEEfsE6AA4foUla4"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 3,\n    \"name\": \"Project 3\",\n    \"deleted\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/projects/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"projects",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE /api/employees/projects",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Project 2\",\n    \"deleted\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/employees/projects/3/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"employees",
+										"projects",
+										"3",
+										""
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			]
 		},
@@ -406,25 +426,16 @@
 					"name": "softwares",
 					"item": [
 						{
-							"name": "POST  /api/tools/softwares/",
+							"name": "GET  /api/tools/softwares/",
 							"request": {
-								"method": "POST",
+								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
 										"type": "text",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTQ3MDA3LCJqdGkiOiI5N2EwNDZiNTgxM2Q0MWI4YjExMDVhYWRmMmM0ZWEyZiIsInVzZXJfaWQiOjF9.EQAXOcV0_yYFL8qT4PXYcj_w7S3eBB9N92f-IzVB-as"
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"type\": \"SW\",\n    \"version\": \"1\",\n    \"designation\": \"SW V1\",\n    \"description\": \"SW V1 desc\",\n    \"status\": \"STATE 1\",\n    \"qa_reference\": \"v1.0\",\n    \"serial_number\": \"LCHHD15\",\n    \"buy_date\": \"2021-08-03\",\n    \"details\": \"More details\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
 								"url": {
 									"raw": "http://127.0.0.1:8000/api/tools/softwares/",
 									"protocol": "http",
@@ -446,16 +457,25 @@
 							"response": []
 						},
 						{
-							"name": "GET  /api/tools/softwares/",
+							"name": "POST  /api/tools/softwares/",
 							"request": {
-								"method": "GET",
+								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
 										"type": "text",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90"
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTQ3MDA3LCJqdGkiOiI5N2EwNDZiNTgxM2Q0MWI4YjExMDVhYWRmMmM0ZWEyZiIsInVzZXJfaWQiOjF9.EQAXOcV0_yYFL8qT4PXYcj_w7S3eBB9N92f-IzVB-as"
 									}
 								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"type\": \"SW\",\n    \"version\": \"1\",\n    \"designation\": \"SW V1\",\n    \"description\": \"SW V1 desc\",\n    \"status\": \"AVAILABLE\",\n    \"qa_reference\": \"v1.0\",\n    \"serial_number\": \"LCHHD15\",\n    \"buy_date\": \"2021-08-03\",\n    \"details\": \"More details\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
 									"raw": "http://127.0.0.1:8000/api/tools/softwares/",
 									"protocol": "http",
@@ -599,7 +619,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"type\": \"HW\",\n    \"version\": \"Version X\",\n    \"designation\": \"designation 1\",\n    \"description\": \"description\",\n    \"status\": \"STATE 2\",\n    \"comptability\": \"a\",\n    \"licence\": \"open-source\",\n    \"drivers\": \"none\",\n    \"link\": \"http://www.google.com\"\n}",
+									"raw": "{\n    \"type\": \"HW\",\n    \"version\": \"Version X\",\n    \"designation\": \"designation 1\",\n    \"description\": \"description\",\n    \"status\": \"AVAILABLE\",\n    \"comptability\": \"a\",\n    \"licence\": \"open-source\",\n    \"drivers\": \"none\",\n    \"link\": \"http://www.google.com\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -700,6 +720,333 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "documents",
+					"item": [
+						{
+							"name": "GET  /api/tools/documents/",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tools/documents/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tools",
+										"documents",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST  /api/tools/documents/",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"type\": \"GUIDE\",\n  \"title\": \"Document 1\",\n  \"link\": \"http://www.google.com/s?doc\",\n  \"status\": \"DRAFT\",\n  \"author\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tools/documents/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tools",
+										"documents",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET  /api/tools/documents/<id>",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tools/documents/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tools",
+										"documents",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE  /api/tools/documents/",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Project 2\",\n    \"deleted\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tools/documents/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tools",
+										"documents",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "reservations",
+			"item": [
+				{
+					"name": "GET  /api/reservations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/reservations/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"reservations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST  /api/reservations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"equipment_type\": \"SW\",\n    \"created_at\": \"2021-08-04T17:36:26.211074Z\",\n    \"start_date\": \"2021-08-05T13:35:26Z\",\n    \"end_date\": \"2021-08-11T13:35:26Z\",\n    \"status\": \"IN_PROGRESS\",\n    \"user\": 2,\n    \"sw_equipment\": 1,\n    \"hw_equipment\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/reservations/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"reservations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET  /api/reservations/<id>",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/reservations/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"reservations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT  /api/reservations/<id>",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"equipment_type\": \"SW\",\n    \"created_at\": \"2021-08-04T17:36:26.211074Z\",\n    \"start_date\": \"2021-08-05T13:35:26Z\",\n    \"end_date\": \"2021-08-11T13:35:26Z\",\n    \"status\": \"REJECTED\",\n    \"user\": 2,\n    \"sw_equipment\": 1,\n    \"hw_equipment\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/reservations/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"reservations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE  /api/reservations/<id>",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/reservations/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"reservations",
+								"2"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
