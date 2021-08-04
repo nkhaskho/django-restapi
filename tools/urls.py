@@ -26,7 +26,9 @@ urlpatterns = [
    path('softwares/', views.SoftwareList.as_view()),
    path('softwares/<int:pk>/', views.SoftwareDetail.as_view()),
    path('hardwares/', views.HardwareList.as_view()),
-   path('hardwares/<int:pk>/', views.HardwareDetail.as_view())
+   path('hardwares/<int:pk>/', views.HardwareDetail.as_view()),
+   path('documents/', views.DocumentList.as_view()),
+   path('documents/<int:pk>/', views.DocumentDetail.as_view())
 ]
 
 

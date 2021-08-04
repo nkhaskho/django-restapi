@@ -11,7 +11,8 @@ class ProjectSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password', 'identifier', 'role', 'project', 'is_active', 'is_staff',)
+        fields = ('id', 'username', 'email', 'password', 'registration_number', 
+                'role', 'project', 'created_at', 'is_active', 'is_staff',)
     
     def create(self, validated_data):
         user = User(email=validated_data['email'], username=validated_data['username'])

@@ -9,8 +9,8 @@ from rest_framework import generics
 
 from django.http import Http404
 
-from .models import Hardware, Software
-from .serlializers import SoftwareSerializer, HardwareSerializer
+from .models import *
+from .serlializers import *
 
 
 class HardwareList(generics.ListCreateAPIView):
@@ -85,4 +85,43 @@ class SoftwareDetail(APIView):
     def delete(self, request, pk, format=None):
         software = self.get_object(pk)
         software.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+class DocumentList(generics.ListCreateAPIView):
+    """
+    List all documents, or create a new document.
+    """
+    queryset = Document.objects.filter()
+    serializer_class = DocumentSerializer
+
+
+class DocumentDetail(APIView):
+    """
+    Retrieve, update or delete a document.
+    """
+    #permission_classes = (IsAuthenticated,)
+    def get_object(self, pk):
+        try:
+            return Document.objects.get(pk=pk)
+        except Document.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        document = self.get_object(pk)
+        serializer = DocumentSerializer(document)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        document = self.get_object(pk)
+        serializer = DocumentSerializer(document, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        document = self.get_object(pk)
+        document.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

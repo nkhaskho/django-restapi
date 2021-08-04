@@ -5,9 +5,9 @@ from django.contrib.auth.hashers import make_password
 
 
 USER_ROLE_CHOICES = [
-    ('MANAGER', 'Manager'),
-    ('LEADER', 'Leader'),
-    ('USER', 'User')
+    ('PROJECT_MANAGER', 'Project Manager'),
+    ('TEAM_LEADER', 'Team Leader'),
+    ('TEAM_MEMBER', 'Team Member')
 ]
 
 
@@ -28,9 +28,8 @@ class UserManager(BaseUserManager):
             raise TypeError("email field is required")
         if password is None:
             raise TypeError("password field is required")
-        user = self.create_user(username=username, email=self.normalize_email(email), password=password)
+        user = self.model(username=username, email=self.normalize_email(email), password=password)
         user.set_password(password)
-        user.is_staff = True
         user.save()
         return user
 
@@ -42,7 +41,7 @@ class UserManager(BaseUserManager):
         user = self.create_user(username, email, password)
         user.is_superuser = True
         user.is_staff = True
-        user.role = 'MANAGER'
+        user.role = 'PROJECT_MANAGER'
         user.save()
         return user
 
@@ -50,8 +49,8 @@ class UserManager(BaseUserManager):
 class User(AbstractUser, PermissionsMixin):
     username = models.CharField(max_length=255, unique=True, db_index=True)
     email = models.EmailField(unique=True)
-    identifier = models.IntegerField(null=True)
-    role = models.CharField(choices=USER_ROLE_CHOICES, max_length=20, default='USER')
+    registration_number = models.IntegerField(null=True)
+    role = models.CharField(choices=USER_ROLE_CHOICES, max_length=20, default='TEAM_MEMBER')
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -60,7 +59,7 @@ class User(AbstractUser, PermissionsMixin):
     updated_at = models.DateTimeField(auto_now=True)
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'password']
+    REQUIRED_FIELDS = ['email']
 
     objects = UserManager()
 

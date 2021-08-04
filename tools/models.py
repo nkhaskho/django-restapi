@@ -1,4 +1,5 @@
 from django.db import models
+from employees.models import User
 
 # Create your models here.
 TOOLS_TYPE_CHOICES = [
@@ -42,3 +43,29 @@ class Hardware(models.Model):
 
     def __str__(self) -> str:
         return self.designation
+
+
+DOCUMENT_TYPE_CHOICES = [
+    ('GUIDE', 'Guide'),
+    ('MEMO', 'Memo')
+]
+
+DOCUMENT_STATUS_CHOICES = [
+    ('DRAFT', 'Draft'),
+    ('IN_PROOFREADING', 'In proofreading'),
+    ('IN_CORRECTION', 'In correction'),
+    ('PUBLISHED', 'Published')
+]
+
+class Document(models.Model):
+    type =  models.CharField(choices=DOCUMENT_TYPE_CHOICES, max_length=10)
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    link = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    #updated_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    status = models.CharField(choices=DOCUMENT_STATUS_CHOICES, max_length=50)
+
+    def __str__(self) -> str:
+        return f'[{self.type}] {self.title}'
