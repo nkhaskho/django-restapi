@@ -23,5 +23,6 @@ urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/employees/', include('employees.urls')),
     path('api/tools/', include('tools.urls')),
+    path('api/reservations/', include('reservations.urls')),
     path('api/auth/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
 ]

@@ -2,18 +2,16 @@
 
 
 from rest_framework.views import APIView
-from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics
 
 from django.http import Http404
 
-from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Project, User
-from .serlializers import ProjectSerializer
-from rest_framework.response import Response
-from .serlializers import UserSerializer
+from .serializers import UserSerializer, ProjectSerializer
 
 
 class UserList(generics.ListCreateAPIView):

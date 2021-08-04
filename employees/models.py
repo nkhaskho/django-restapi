@@ -1,7 +1,7 @@
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, AbstractUser, BaseUserManager, PermissionsMixin
-from django.contrib.auth.hashers import make_password
+#from tools.models import Hardware, Software
 
 
 USER_ROLE_CHOICES = [
@@ -46,7 +46,7 @@ class UserManager(BaseUserManager):
         return user
 
 
-class User(AbstractUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255, unique=True, db_index=True)
     email = models.EmailField(unique=True)
     registration_number = models.IntegerField(unique=True, null=True)

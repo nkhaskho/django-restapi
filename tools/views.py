@@ -10,7 +10,7 @@ from rest_framework import generics
 from django.http import Http404
 
 from .models import *
-from .serlializers import *
+from .serializers import *
 
 
 class HardwareList(generics.ListCreateAPIView):

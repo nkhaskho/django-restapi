@@ -2,25 +2,26 @@ from django.db import models
 from employees.models import User
 
 # Create your models here.
-TOOLS_TYPE_CHOICES = [
+EQUIPMENT_TYPE_CHOICES = [
     ('HW', 'Hardware'),
     ('SW', 'Software')
 ]
 
-STATUS_CHOICES = [
-    ('STATE 1', 'State 1'),
-    ('STATE 2', 'State 2'),
-    ('STATE 3', 'State 3')
+EQUIPMENT_STATUS_CHOICES = [
+    ('OBSOLETE', 'obsolete'),
+    ('AVAILABLE', 'Available'),
+    ('UNDER_REPAIR', 'Under repair'),
+    ('SAMPLING', 'Sampling'),
+    ('UNRELIABLE', 'Unreliable')
 ]
 
 # Create your models here.
-
 class Software(models.Model):
-    type =  models.CharField(default=TOOLS_TYPE_CHOICES[1][1], max_length=10)
+    type =  models.CharField(default=EQUIPMENT_TYPE_CHOICES[1][1], max_length=10)
     version = models.CharField(max_length=50)
     designation = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
-    status = models.CharField(choices=STATUS_CHOICES, max_length=10)
+    status = models.CharField(choices=EQUIPMENT_STATUS_CHOICES, max_length=20)
     qa_reference = models.CharField(max_length=100)
     serial_number = models.CharField(max_length=100)
     buy_date = models.DateField()
@@ -31,11 +32,11 @@ class Software(models.Model):
 
 
 class Hardware(models.Model):
-    type =  models.CharField(default=TOOLS_TYPE_CHOICES[0][1], max_length=10)
+    type =  models.CharField(default=EQUIPMENT_TYPE_CHOICES[0][1], max_length=10)
     version = models.CharField(max_length=50)
     designation = models.CharField(max_length=100)
     description = models.CharField(max_length=255)
-    status = models.CharField(choices=STATUS_CHOICES, max_length=10)
+    status = models.CharField(choices=EQUIPMENT_STATUS_CHOICES, max_length=20)
     comptability = models.CharField(max_length=50)
     licence = models.CharField(max_length=100)
     drivers = models.CharField(max_length=255)
