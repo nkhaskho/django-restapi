@@ -12,16 +12,19 @@ from django.http import Http404
 
 from .models import Project, User
 from .serializers import UserSerializer, ProjectSerializer
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
 
-
-class UserList(generics.ListCreateAPIView):
+class UserList(generics.ListAPIView):
     """
     List all users, or create a new user.
     """
+
     queryset = User.objects.filter(is_active=True)
     serializer_class = UserSerializer
-    #permission_classes = (IsAuthenticated,)
-
+    filter_backends = (DjangoFilterBackend, SearchFilter)
+    filter_fields = ('project', 'is_active')
+    
 
 class UserDetail(APIView):
     """

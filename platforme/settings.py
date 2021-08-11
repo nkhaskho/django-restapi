@@ -33,6 +33,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Application definition
 
+JWT_AUTH = {
+}
+
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50000),
     'UPDATE_LAST_LOGIN': False,
@@ -40,8 +43,9 @@ SIMPLE_JWT = {
     'SIGNING_KEY': SECRET_KEY,
     'AUTH_HEADER_TYPES': ('Bearer',),
     'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
+    'JWT_PAYLOAD_HANDLER': 'employees.utils.jwt_payload_handler',
     'USER_ID_FIELD': 'id',
-    'USER_ID_CLAIM': 'user_id',
+    'USER_ID_CLAIM': 'user_id'
 }
 
 REST_FRAMEWORK = {
@@ -65,6 +69,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drf_yasg',
     'rest_framework',
+    'django_filters',
     'rest_framework_simplejwt',
     'reservations',
     'employees',
