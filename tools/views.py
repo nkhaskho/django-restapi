@@ -7,6 +7,9 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework import generics
 
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
+
 from django.http import Http404
 
 from .models import *
@@ -18,6 +21,8 @@ class HardwareList(generics.ListCreateAPIView):
     List all hardwares, or create a new hardware tools.
     """
     queryset = Hardware.objects.all()
+    filter_backends = (DjangoFilterBackend, SearchFilter)
+    filter_fields = ('status', 'type')
     serializer_class = HardwareSerializer
 
 
@@ -55,6 +60,8 @@ class SoftwareList(generics.ListCreateAPIView):
     List all softwares, or create a new software tools.
     """
     queryset = Software.objects.filter()
+    filter_backends = (DjangoFilterBackend, SearchFilter)
+    filter_fields = ('type', 'status')
     serializer_class = SoftwareSerializer
 
 
@@ -94,6 +101,8 @@ class DocumentList(generics.ListCreateAPIView):
     List all documents, or create a new document.
     """
     queryset = Document.objects.filter()
+    filter_backends = (DjangoFilterBackend, SearchFilter)
+    filter_fields = ('status', 'type', 'author')
     serializer_class = DocumentSerializer
 
 

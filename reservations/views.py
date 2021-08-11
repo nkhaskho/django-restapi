@@ -8,6 +8,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics
 
+
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
+
 from django.http import Http404
 
 from .models import Reservation
@@ -19,6 +23,8 @@ class ReservationList(generics.ListCreateAPIView):
     List all reservations, or create a new equipment reservation.
     """
     queryset = Reservation.objects.all()
+    filter_backends = (DjangoFilterBackend, SearchFilter)
+    filter_fields = ('user', 'equipment_type', 'status')
     serializer_class = ReservationSerializer
     #permission_classes = (IsAuthenticated,)
 

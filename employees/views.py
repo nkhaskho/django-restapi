@@ -63,6 +63,8 @@ class ProjectList(generics.ListCreateAPIView):
     """
     queryset = Project.objects.filter(deleted=False)
     serializer_class = ProjectSerializer
+    filter_backends = (DjangoFilterBackend, SearchFilter)
+    filter_fields = ('name', 'id')
     #permission_classes = (IsAuthenticated,)
 
 
