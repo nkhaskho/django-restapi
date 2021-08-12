@@ -134,3 +134,44 @@ class DocumentDetail(APIView):
         document = self.get_object(pk)
         document.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+class GenericFunctionsList(generics.ListCreateAPIView):
+    """
+    List all documents, or create a new document.
+    """
+    queryset = GenericFunction.objects.filter()
+    filter_backends = (DjangoFilterBackend, SearchFilter)
+    filter_fields = ('status', 'author', 'language')
+    serializer_class = GenericFunctionSerializer
+
+
+class GenericFunctionDetail(APIView):
+    """
+    Retrieve, update or delete a GenericFunction.
+    """
+    #permission_classes = (IsAuthenticated,)
+    def get_object(self, pk):
+        try:
+            return GenericFunction.objects.get(pk=pk)
+        except GenericFunction.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk, format=None):
+        gen_function = self.get_object(pk)
+        serializer = GenericFunctionSerializer(gen_function)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        gen_function = self.get_object(pk)
+        serializer = GenericFunctionSerializer(gen_function, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        gen_function = self.get_object(pk)
+        gen_function.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

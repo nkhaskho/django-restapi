@@ -28,7 +28,9 @@ urlpatterns = [
    path('hardwares/', views.HardwareList.as_view()),
    path('hardwares/<int:pk>/', views.HardwareDetail.as_view()),
    path('documents/', views.DocumentList.as_view()),
-   path('documents/<int:pk>/', views.DocumentDetail.as_view())
+   path('documents/<int:pk>/', views.DocumentDetail.as_view()),
+   path('gfunctions/', views.GenericFunctionsList.as_view()),
+   path('gfunctions/<int:pk>/', views.GenericFunctionDetail.as_view())
 ]
 
 

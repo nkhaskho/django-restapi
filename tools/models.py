@@ -1,5 +1,5 @@
 from django.db import models
-from employees.models import User
+from employees.models import Project, User
 
 # Create your models here.
 EQUIPMENT_TYPE_CHOICES = [
@@ -64,9 +64,38 @@ class Document(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     link = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
-    #updated_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    updated_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name="updated_by")
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(choices=DOCUMENT_STATUS_CHOICES, max_length=50)
 
     def __str__(self) -> str:
         return f'[{self.type}] {self.title}'
+
+LANGUAGES_CHOICES = [
+    ('C', 'C'),
+    ('C++', 'C++'),
+    ('C#', 'C#'),
+    ('JAVA', 'Java'),
+    ('RUBY', 'Ruby'),
+    ('GOLANG', 'Golang')
+]
+
+class GenericFunction(models.Model):
+    """
+    Titre, Auteur, Date de création, Description, Date dernière Modification, Modifié par, Réviseur, 
+    Etat (Brouillon, En Relecture, En cours de correction, publié), Mot clés, Langage, Projet
+    """
+    title = models.CharField(max_length=255)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    link = models.CharField(max_length=255)
+    updated_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name="author")
+    status = models.CharField(choices=DOCUMENT_STATUS_CHOICES, max_length=50)
+    keywords = models.CharField(max_length=255)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    language = models.CharField(choices=LANGUAGES_CHOICES, max_length=20)
+    
+    def __str__(self) -> str:
+        return f'[{self.language}] {self.title}'

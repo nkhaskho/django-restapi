@@ -1,4 +1,4 @@
-from .models import Hardware, Software, Document
+from .models import (Hardware, Software, Document, GenericFunction)
 from rest_framework import serializers
 
 
@@ -17,4 +17,10 @@ class HardwareSerializer(serializers.ModelSerializer):
 class DocumentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Document
+        fields = "__all__"
+
+
+class GenericFunctionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GenericFunction
         fields = "__all__"
