@@ -56,13 +56,12 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTQ3MDA3LCJqdGkiOiI5N2EwNDZiNTgxM2Q0MWI4YjExMDVhYWRmMmM0ZWEyZiIsInVzZXJfaWQiOjF9.EQAXOcV0_yYFL8qT4PXYcj_w7S3eBB9N92f-IzVB-as",
-										"type": "text",
-										"disabled": true
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMxMDk4OTk1LCJqdGkiOiI5OTQ4YWJkMzQ3MGI0MDVlODZjZDY4Y2Y2YzVjYjdiMSIsInVzZXJfaWQiOjF9.N-L9D5AX2XT6pDDEG_UO7BGKWnCW_ThbKdoHpwJ8J0I",
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/employees/users/",
+									"raw": "http://127.0.0.1:8000/api/employees/users/?project=1&is_active=false",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -76,6 +75,16 @@
 										"employees",
 										"users",
 										""
+									],
+									"query": [
+										{
+											"key": "project",
+											"value": "1"
+										},
+										{
+											"key": "is_active",
+											"value": "false"
+										}
 									]
 								}
 							},
@@ -258,6 +267,18 @@
 										"employees",
 										"projects",
 										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "IT Support",
+											"disabled": true
+										}
 									]
 								}
 							},
@@ -437,7 +458,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/tools/softwares/",
+									"raw": "http://127.0.0.1:8000/api/tools/softwares/?type=SW",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -451,6 +472,12 @@
 										"tools",
 										"softwares",
 										""
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "SW"
+										}
 									]
 								}
 							},
@@ -586,7 +613,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/tools/hardwares/",
+									"raw": "http://127.0.0.1:8000/api/tools/hardwares/?type=HW",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -600,6 +627,12 @@
 										"tools",
 										"hardwares",
 										""
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "HW"
+										}
 									]
 								}
 							},
@@ -737,7 +770,7 @@
 									}
 								],
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/tools/documents/",
+									"raw": "http://127.0.0.1:8000/api/tools/documents/?type=GUIDE",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -751,6 +784,12 @@
 										"tools",
 										"documents",
 										""
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "GUIDE"
+										}
 									]
 								}
 							},
@@ -865,6 +904,168 @@
 										"tools",
 										"documents",
 										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "gfunctions",
+					"item": [
+						{
+							"name": "GET  /api/tools/gfunctions/",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tools/gfunctions/?status=DRAFT",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tools",
+										"gfunctions",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "DRAFT"
+										},
+										{
+											"key": "author",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST  /api/tools/gfunctions/",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Other one\",\n    \"description\": \"An other function\",\n    \"link\": \"link\",\n    \"status\": \"DRAFT\",\n    \"keywords\": \"other, function\",\n    \"language\": \"JAVA\",\n    \"author\": 1,\n    \"updated_by\": null,\n    \"project\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tools/gfunctions/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tools",
+										"gfunctions",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET  /api/tools/gfunctions/<id>",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tools/gfunctions/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tools",
+										"gfunctions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE  /api/tools/gfunctions/<id>",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjMwOTMwMjYwLCJqdGkiOiI3YmViMGFjMThlNGE0OGE2OTRmNjA0NzM0NGFhZjA1MSIsInVzZXJfaWQiOjF9.GtD_vbyXLGNLfnYlfoSLrAq19fqjM77caJyQIYE7y90",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Project 2\",\n    \"deleted\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tools/gfunctions/2",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tools",
+										"gfunctions",
+										"2"
 									]
 								}
 							},
