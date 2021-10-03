@@ -36,6 +36,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 JWT_AUTH = {
 }
 
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=50000),
     'UPDATE_LAST_LOGIN': False,
@@ -51,7 +60,7 @@ SIMPLE_JWT = {
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         #'rest_framework.permissions.IsAuthenticated',
-        #'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -67,23 +76,30 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "corsheaders",
     'drf_yasg',
     'rest_framework',
     'django_filters',
     'rest_framework_simplejwt',
     'reservations',
     'employees',
-    'tools'
+    'tools.apps.ToolsConfig'
 ]
+
+ALLOWED_HOSTS = ['*']
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'middleware.corsMiddleware',
 ]
 
 ROOT_URLCONF = 'platforme.urls'
