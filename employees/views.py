@@ -2,7 +2,6 @@
 
 
 from rest_framework.views import APIView
-from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework import status
@@ -15,7 +14,7 @@ from .serializers import UserSerializer, ProjectSerializer
 from rest_framework.filters import SearchFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
-class UserList(generics.ListAPIView):
+class UserList(generics.ListCreateAPIView):
     """
     List all users, or create a new user.
     """
@@ -23,7 +22,7 @@ class UserList(generics.ListAPIView):
     queryset = User.objects.filter(is_active=True)
     serializer_class = UserSerializer
     filter_backends = (DjangoFilterBackend, SearchFilter)
-    filter_fields = ('project', 'is_active')
+    filter_fields = ('project', 'is_active', 'username')
     
 
 class UserDetail(APIView):

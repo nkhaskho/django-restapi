@@ -13,6 +13,13 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('id', 'username', 'email', 'password', 'registration_number', 
                 'role', 'project', 'created_at', 'is_active', 'is_staff',)
+        #fields = ('id', 'email', 'first_name', 'last_name' ,'security_question', 'security_question_answer', 'password', 'is_active', 'is_staff')
+        #read_only_fields = ('password',)
+        """
+        extra_kwargs = {
+            'password': {'read_only': True}
+        }
+        """
     
     def create(self, validated_data):
         user = User(email=validated_data['email'], username=validated_data['username'])

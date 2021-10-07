@@ -69,7 +69,7 @@ class SoftwareDetail(APIView):
     """
     Retrieve, update or delete a software tools.
     """
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)
     def get_object(self, pk):
         try:
             return Software.objects.get(pk=pk)

@@ -54,6 +54,6 @@ class ReservationDetail(APIView):
 
     def delete(self, request, pk, format=None):
         reservation = self.get_object(pk)
-        reservation.is_active = False
-        reservation.save()
+        #reservation.is_active = False
+        reservation.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

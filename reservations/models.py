@@ -8,13 +8,13 @@ RESERVATION_STATUS = [
     ('IN_PROGRESS', 'In progress'),
     ('VALIDATED', 'Validated'),
     ('POSTPONED', 'Postponed'),
-    ('REJECTED', 'Rejected')
+    ('REJECTED', 'Rejected'),
+    ('DELETED', 'Deleted')
 ]
 
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     equipment_type = models.CharField(choices=EQUIPMENT_TYPE_CHOICES, max_length=20)
-    sw_equipment = models.ForeignKey(Software,on_delete=models.CASCADE, null=True)
     hw_equipment = models.ForeignKey(Hardware,on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     start_date = models.DateTimeField()
