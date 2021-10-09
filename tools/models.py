@@ -40,7 +40,7 @@ class Hardware(models.Model):
     comptability = models.CharField(max_length=50)
     licence = models.CharField(max_length=100)
     drivers = models.CharField(max_length=255)
-    link = models.CharField(max_length=2500)
+    link = models.CharField(max_length=2500, null=True, default="")
 
     def __str__(self) -> str:
         return self.designation
